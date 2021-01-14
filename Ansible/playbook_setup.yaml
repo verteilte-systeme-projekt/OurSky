@@ -2,7 +2,6 @@
 - name: init servers
   hosts: all
   # become_user: jonathan
- 
   tasks:
   - name: ensure pip is installed
     become: true
