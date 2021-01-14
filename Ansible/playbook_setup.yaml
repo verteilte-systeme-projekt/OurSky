@@ -4,36 +4,36 @@
   # become_user: jonathan
   tasks:
   - name: ensure pip is installed
-    become: true
-    become_method: sudo
-    package:
-      name: ["python3", "python3-pip", "docker", "python3-docker"]
-      state: latest
+      become: true
+      become_method: sudo
+      package:
+        name: ["python3", "python3-pip", "docker", "python3-docker"]
+        state: latest
   - name: ensure all packages are installed
-    become: true    
-    become_method: sudo    
-    pip:
-      name: "{{ item }}"
-      executable: pip3
-    loop:
-      - docker-py
+      become: true    
+      become_method: sudo    
+      pip:
+        name: "{{ item }}"
+        executable: pip3
+      loop:
+        - docker-py
   - name: ensure NTP is active
-    become: true
-    become_method: sudo
-    service:
-      name: ntp
-      enabled: true
+      become: true
+      become_method: sudo
+      service:
+        name: ntp
+        enabled: true
   - name: ensure network interfaces are setup correctly
-    become: true
-    become_method: sudo
-    netplan_enabled: true
-    netplan_renderer: networkd
-    netplan_configuration:
-      network:
-        version: 2
-        ethernets:
-          enp2s0:
-            dhcp4: yes
-          eno1:
-            addresses: [10.0.42.XXX/24]
-            dhcp4: no
+      become: true
+      become_method: sudo
+      netplan_enabled: true
+      netplan_renderer: networkd
+      netplan_configuration:
+        network:
+          version: 2
+          ethernets:
+            enp2s0:
+              dhcp4: yes
+            eno1:
+              addresses: [10.0.42.XXX/24]
+              dhcp4: no
