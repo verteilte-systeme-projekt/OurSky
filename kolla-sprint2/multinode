@@ -1,0 +1,21 @@
+[control]
+wally135.cit.tu-berlin.de ansible_python_interpreter=/usr/bin/python3 ansible_become=true ansible_user=jonathan
+
+[network:children]
+control
+# when you specify group_name:children, it will use contents of group specified.
+
+[compute]
+wally141.cit.tu-berlin.de ansible_python_interpreter=/usr/bin/python3 ansible_become=true ansible_user=jonathan
+
+[monitoring]
+wally135.cit.tu-berlin.de ansible_python_interpreter=/usr/bin/python3
+# This group is for monitoring node.
+# Fill it with one of the controllers' IP address or some others.
+
+[storage:children]
+compute
+
+[deployment]
+wally135.cit.tu-berlin.de ansible_python_interpreter=/usr/bin/python3 ansible_become=true
+# use localhost and sudo
