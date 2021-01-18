@@ -1,21 +1,41 @@
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=jonathan
+ansible_become=True
+# ansible_private_key_file={{lookup('env','HOME')}}/.ssh/id_rsa
+
 [control]
-wally135.cit.tu-berlin.de ansible_python_interpreter=/usr/bin/python3 ansible_become=true ansible_user=jonathan
+wally135.cit.tu-berlin.de
 
 [network:children]
 control
 # when you specify group_name:children, it will use contents of group specified.
 
 [compute]
-wally141.cit.tu-berlin.de ansible_python_interpreter=/usr/bin/python3 ansible_become=true ansible_user=jonathan
+wally141.cit.tu-berlin.de
+wally141.cit.tu-berlin.de
 
-[monitoring]
-wally135.cit.tu-berlin.de ansible_python_interpreter=/usr/bin/python3
+[keystone]
+wally135.cit.tu-berlin.de
+
+#[monitoring]
+#wally135.cit.tu-berlin.de
 # This group is for monitoring node.
 # Fill it with one of the controllers' IP address or some others.
 
-[storage:children]
-compute
+#[storage:children]
+#compute
 
-[deployment]
-wally135.cit.tu-berlin.de ansible_python_interpreter=/usr/bin/python3 ansible_become=true
+#[deployment]
+#wally135.cit.tu-berlin.de
 # use localhost and sudo
+
+#[baremetal:children]
+#control
+#network
+#storage
+#monitoring
+#wally135.cit.tu-berlin.de
+#wally141.cit.tu-berlin.de
+
+[baremetal:children]
