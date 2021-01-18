@@ -70,9 +70,20 @@ kolla-ansible -i multinode prechecks
 kolla-ansible -i multinode deploy
 ```
 
-Bei `kolla-ansible -i multinode prechecks` tritt bei mir auf allen Servern dieses Problem auf:
+Bei `kolla-ansible -i multinode prechecks` tritt bei mir dieses Problem auf:<br>
+(Kann durch Änderung am Task umgangen werden)
 ```
 fatal: [wally135.cit.tu-berlin.de]: FAILED! => {"msg": "The conditional check 'inventory_hostname in groups['baremetal']' failed. The error was: error while evaluating conditional (inventory_hostname in groups['baremetal']): 'dict object' has no attribute 'baremetal'\n\nThe error appears to be in '/home/jonathan/code/uni/OurSky/kolla-sprint2/venv/share/kolla-ansible/ansible/roles/prechecks/tasks/service_checks.yml': line 2, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n---\n- name: Checking Docker version\n  ^ here\n"}
 ```
+
+Kolla Post-Deploy ausführen (post-deploy funktioniert normal nicht, da der falsche Pfad für post-deploy.yml gesucht wird):
+```
+ansible-playbook -i ../../../multinode -e @/etc/kolla/globals.yml  -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  /home/jonathan/code/uni/OurSky/kolla-sprint2/venv/share/kolla-ansible/ansible/post-deploy.yml
+
+. /etc/kolla/admin-openrc.sh 
+
+./venv/share/kolla-ansible/init-runonce 
+```
+
 
 
