@@ -129,15 +129,15 @@ neutron_services:
     volumes: "{{ neutron_metadata_agent_default_volumes + neutron_metadata_agent_extra_volumes }}"
     dimensions: "{{ neutron_metadata_agent_dimensions }}"
     healthcheck: "{{ neutron_metadata_agent_healthcheck }}"
-  neutron-ovn-metadata-agent:
-    container_name: "neutron_ovn_metadata_agent"
-    image: "{{ neutron_ovn_metadata_agent_image_full }}"
-    privileged: True
-    enabled: "{{ neutron_plugin_agent == 'ovn' }}"
-    host_in_groups: "{{ inventory_hostname in groups['neutron-ovn-metadata-agent'] }}"
-    volumes: "{{ neutron_ovn_metadata_agent_default_volumes + neutron_ovn_metadata_agent_extra_volumes }}"
-    dimensions: "{{ neutron_ovn_metadata_agent_dimensions }}"
-    healthcheck: "{{ neutron_ovn_metadata_agent_healthcheck }}"
+  #neutron-ovn-metadata-agent:
+  #  container_name: "neutron_ovn_metadata_agent"
+  #  image: "{{ neutron_ovn_metadata_agent_image_full }}"
+  #  privileged: True
+  #  enabled: "{{ neutron_plugin_agent == 'ovn' }}"
+  #  host_in_groups: "{{ inventory_hostname in groups['neutron-ovn-metadata-agent'] }}"
+  #  volumes: "{{ neutron_ovn_metadata_agent_default_volumes + neutron_ovn_metadata_agent_extra_volumes }}"
+  #  dimensions: "{{ neutron_ovn_metadata_agent_dimensions }}"
+  #  healthcheck: "{{ neutron_ovn_metadata_agent_healthcheck }}"
   neutron-bgp-dragent:
     container_name: "neutron_bgp_dragent"
     image: "{{ neutron_bgp_dragent_image_full }}"
