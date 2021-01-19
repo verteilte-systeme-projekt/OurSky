@@ -1,12 +1,19 @@
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_become=True
+ansible_user=jonathan
+ansible_ssh_private_key_file=path/to/your/id_rsa
+api_interface=enp2s0
+neutron_external_interface=eno1
+tunnel_interface=enp2s0
+cluster_interface=enp2s0
+become_method=sudo
 
 # These initial groups are the only groups required to be modified. The
 # additional groups are for more control of the environment.
 [control]
 # These hostname must be resolvable from your deployment host
-zead@wally135.cit.tu-berlin.de        ansible_ssh_private_key_file=path/to/your/id_rsa ansible_user=zead ansible_become=true  api_interface=enp2s0 neutron_external_interface=eno1 tunnel_interface=enp2s0 cluster_interface=enp2s0
+wally135.cit.tu-berlin.de       
 #control02
 #control03
 
@@ -20,9 +27,8 @@ control
 #network02
 
 [compute]
-zead@wally141.cit.tu-berlin.de        ansible_ssh_private_key_file=path/to/your/id_rsa ansible_user=zead ansible_become=true api_interface=enp2s0 neutron_external_interface=eno1 tunnel_interface=enp2s0 cluster_interface=enp2s0
-
-zead@wally142.cit.tu-berlin.de        ansible_ssh_private_key_file=path/to/your/id_rsa ansible_user=zead ansible_become=true api_interface=enp2s0 neutron_external_interface=eno1 tunnel_interface=enp2s0 cluster_interface=enp2s0
+wally141.cit.tu-berlin.de
+wally142.cit.tu-berlin.de
 
 [monitoring]
 #monitoring01
@@ -36,7 +42,7 @@ zead@wally142.cit.tu-berlin.de        ansible_ssh_private_key_file=path/to/your/
 #storage01
 
 [deployment]
-localhost       ansible_connection=local ansible_become_pass=yourLocalPassword ansible_become=True
+localhost	ansible_connection=local
 
 [baremetal:children]
 control
