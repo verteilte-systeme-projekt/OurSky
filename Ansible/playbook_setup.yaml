@@ -16,7 +16,7 @@
         name: "{{ item }}"
         executable: pip3
       loop:
-        - docker-py
+        - docker
   - name: ensure NTP is active
       become: true
       become_method: sudo
