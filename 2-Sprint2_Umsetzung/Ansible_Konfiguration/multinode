@@ -1,30 +1,24 @@
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
 ansible_become=True
-ansible_user=jonathan
-ansible_ssh_private_key_file=path/to/your/id_rsa
+#ansible_become_user=USERNAME
+#ansible_ssh_private_key_file=path/to/your/id_rsa
 api_interface=enp2s0
 neutron_external_interface=eno1
 tunnel_interface=enp2s0
 cluster_interface=enp2s0
-become_method=sudo
+#become_method=sudo
 
 # These initial groups are the only groups required to be modified. The
 # additional groups are for more control of the environment.
 [control]
 # These hostname must be resolvable from your deployment host
-wally135.cit.tu-berlin.de       
-#control02
-#control03
-
-# The above can also be specified as follows:
-#control[01:03]     ansible_user=kolla
+wally135.cit.tu-berlin.de
 
 # The network nodes are where your l3-agent and loadbalancers will run
 # This can be the same as a host in the control group
 [network:children]
 control
-#network02
 
 [compute]
 wally141.cit.tu-berlin.de
