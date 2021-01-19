@@ -167,13 +167,13 @@
     - ansible_os_family == "Debian"
     - enable_chrony | bool
 
-- name: Remove apparmor profile for chrony
-  command: apparmor_parser -R /etc/apparmor.d/usr.sbin.chronyd
-  become: True
-  when:
-    - ansible_os_family == "Debian"
-    - enable_chrony | bool
-    - apparmor_chronyd_profile.stat.exists
+#- name: Remove apparmor profile for chrony
+#  command: apparmor_parser -R /etc/apparmor.d/usr.sbin.chronyd
+#  become: True
+#  when:
+#    - ansible_os_family == "Debian"
+#    - enable_chrony | bool
+#    - apparmor_chronyd_profile.stat.exists
 
 - name: Create docker group
   group:
