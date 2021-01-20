@@ -1,5 +1,7 @@
 # OurSky
 
+![Ansible Yaml Lint](https://github.com/verteilte-systeme-projekt/OurSky/workflows/Ansible%20Yaml%20Lint/badge.svg?branch=master)
+
 ## Nodes
 
 | Host                        | Funktion | Notizen           | Deploy?                               |
