@@ -25,7 +25,7 @@ wally141.cit.tu-berlin.de
 wally142.cit.tu-berlin.de
 
 [monitoring]
-#monitoring01
+wally135.cit.tu-berlin.de
 
 # When compute nodes and control nodes use different interfaces,
 # you need to comment out "api_interface" and other interfaces from the globals.yml
