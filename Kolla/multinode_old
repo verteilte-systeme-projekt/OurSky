@@ -1,34 +1,31 @@
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
+ansible_become=True
+#ansible_become_user=USERNAME
+#ansible_ssh_private_key_file=path/to/your/id_rsa
 api_interface=enp2s0
 neutron_external_interface=eno1
 tunnel_interface=enp2s0
-cluster_interface=en01
-ansible_become=True
+cluster_interface=enp2s0
+#become_method=sudo
 
 # These initial groups are the only groups required to be modified. The
 # additional groups are for more control of the environment.
 [control]
 # These hostname must be resolvable from your deployment host
-zead@wally135.cit.tu-berlin.de        ansible_ssh_private_key_file=Konfiguration_client/id_rsa ansible_user=zead ansible_become=true
-#control02
-#control03
-
-# The above can also be specified as follows:
-#control[01:03]     ansible_user=kolla
+wally135.cit.tu-berlin.de
 
 # The network nodes are where your l3-agent and loadbalancers will run
 # This can be the same as a host in the control group
 [network:children]
 control
-#network02
 
 [compute]
-zead@wally141.cit.tu-berlin.de        ansible_ssh_private_key_file=Konfiguration_client/id_rsa ansible_user=zead ansible_become=true
-zead@wally142.cit.tu-berlin.de        ansible_ssh_private_key_file=Konfiguration_client/id_rsa ansible_user=zead ansible_become=true
+wally141.cit.tu-berlin.de
+wally142.cit.tu-berlin.de
 
 [monitoring]
-zead@wally139.cit.tu-berlin.de        ansible_ssh_private_key_file=Konfiguration_client/id_rsa ansible_user=zead ansible_become=true
+wally135.cit.tu-berlin.de
 
 # When compute nodes and control nodes use different interfaces,
 # you need to comment out "api_interface" and other interfaces from the globals.yml
@@ -39,7 +36,7 @@ zead@wally139.cit.tu-berlin.de        ansible_ssh_private_key_file=Konfiguration
 #storage01
 
 [deployment]
-localhost       ansible_connection=local ansible_become_pass=Hh.Nn7076Hp2017 ansible_become=True
+localhost	ansible_connection=local
 
 [baremetal:children]
 control
