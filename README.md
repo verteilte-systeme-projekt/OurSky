@@ -9,16 +9,7 @@ Willkommen bei OurSky! Unser Ziel ist es, das Deployment und Monitoring von Open
 - **Monitoring.** Wir nehmen den Admin an die Hand und setzen vollautomatisches Monitoring um.
 - **Benachrichtigungen und Alarme.** Wenn mal etwas im Betrieb schiefgeht und nicht automatisch korrigiert werden konnte, soll das so schnell wie möglich einem Menschen mitgeteilt werden, der sich dann dem Problem widmen kann, anstatt den ganzen Tag auf Diagramme zu schauen
 
-Legen Sie gleich los! [Auf zur Installation](#Installation)!
-
-## Empfohlene Architektur
-
-| Host                        | Funktion   | Notizen           | Probleme                              |
-|-----------------------------|------------|-------------------|---------------------------------------|
-| `wally135.cit.tu-berlin.de` | CONTROL    |                   | OK                                    |
-| `wally139.cit.tu-berlin.de` | MONITORING |                   | OK                                    |
-| `wally141.cit.tu-berlin.de` | COMPUTE1   |                   | OK                                    |
-| `wally142.cit.tu-berlin.de` | COMPUTE2   |                   | OK                                    |
+Legen Sie gleich los! [Auf zur Installation](wiki/Installation)!
 
 ## Installation
 
