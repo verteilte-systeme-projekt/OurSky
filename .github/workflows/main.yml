@@ -4,7 +4,6 @@ on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -13,7 +12,7 @@ jobs:
 
     - name: Lint Ansible Playbook
       # replace "master" with any valid ref
-      uses: ansible/ansible-lint-action@151b9a2
+      uses: ansible/ansible-lint-action@master
       with:
         # [required]
         # Paths to ansible files (i.e., playbooks, tasks, handlers etc..)
@@ -23,10 +22,12 @@ jobs:
         # targets: |
         #   playbook_1.yml
         #   playbook_2.yml
-        targets: "./Ansible/playbook_setup.yml"
+        targets: |
+          "./Scripts/playbooks/bootstrap_host.yml"
         # [optional]
         # Arguments to be passed to the ansible-lint
 
+        args: "-x 403"
         # Options:
         #   -q                    quieter, although not silent output
         #   -p                    parseable output in the format of pep8
@@ -46,4 +47,3 @@ jobs:
         #                         path to directories or files to skip. This option is
         #                         repeatable.
         #   -c C                  Specify configuration file to use. Defaults to ".ansible-lint"
-        args: "-q"
