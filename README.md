@@ -9,4 +9,6 @@ Willkommen bei OurSky! Unser Ziel ist es, das Deployment und Monitoring von Open
 - **Monitoring.** Wir nehmen den Admin an die Hand und setzen vollautomatisches Monitoring um.
 - **Benachrichtigungen und Alarme.** Wenn mal etwas im Betrieb schiefgeht und nicht automatisch korrigiert werden konnte, soll das so schnell wie möglich einem Menschen mitgeteilt werden, der sich dann dem Problem widmen kann, anstatt den ganzen Tag auf Diagramme zu schauen
 
-Legen Sie gleich jetzt los: [**Ich bin bereit! Zur Installation!**](https://github.com/verteilte-systeme-projekt/OurSky/wiki/Installation)
+Alles weitere kann im [Wiki](https://github.com/verteilte-systeme-projekt/OurSky/wiki) nachgeschlagen werden. Viel Spaß!
+---
+Ungeduldig? Legen Sie gleich jetzt los: [**Ich bin bereit! Zur Installation!**](https://github.com/verteilte-systeme-projekt/OurSky/wiki/Installation)
