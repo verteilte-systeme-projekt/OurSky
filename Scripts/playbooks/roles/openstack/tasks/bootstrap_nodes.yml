@@ -1,27 +1,14 @@
-- name: Bootstrap Nodes
-  hosts:
-    - control
-    - monitoring
-    - compute
-  roles:
-    - role: openstack
-      become: yes
-      become_method: sudo
-      netplan_enabled: yes
-      netplan_renderer: networkd
-      netplan_configuration:
-      network:
-        version: 2
-        ethernets:
-        enp2s0:
-          dhcp4: yes
-        eno1:
-          addresses: [ "10.0.42.{{ wally_id }}/24" ]
-          dhcp4: no
-  tasks:
-  - name: ensure NTP is active
-    become: true
-    become_method: sudo
-    service:
-      name: ntp
-      enabled: true
+- name: echo wally wally_id
+  ansible.builtin.debug:
+    msg: 'This is wally {{ wally_id }}!'
+- name: ensure NTP is active
+  become: true
+  become_method: sudo
+  service:
+    name: ntp
+    enabled: true
+- name: copy netplan config
+  become: true
+  template:
+    src: netplan.yml.j2
+    dest: /home/jonathan/netplan.config.txt
