@@ -1,3 +1,6 @@
+- name: print password
+  ansible.builtin.debug:
+    msg: 'Password is {{ password }}'
 - name: Ensure Kolla dependencies are installed on the host machine
   hosts: 127.0.0.1
   connection: local

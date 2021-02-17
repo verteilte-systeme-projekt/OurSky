@@ -3,4 +3,4 @@
     - monitoring
     - compute
   roles:
-    - openstack
+    - role: openstack
