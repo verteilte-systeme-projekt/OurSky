@@ -1,22 +1,19 @@
-- name: print password
-  ansible.builtin.debug:
-    msg: 'Password is {{ password }}'
-- name: Ensure Kolla dependencies are installed on the host machine
-  hosts: 127.0.0.1
-  connection: local
+- name: install packages via aptitude
+  apt:
+    name:
+      - python3
+      - python3-pip
+      - docker
+      - python3-docker
+      - python3-dev
+      - libffi-dev
+      - gcc
+      - libssl-dev
+    state: latest
+  when: ansible_facts['distribution'] == "Ubuntu"
+- name: Set owner of /etc/kolla to current user
   become: yes
-  become_method: sudo
-  tasks:
-  - name: install packages via aptitude
-    apt:
-      name:
-        - python3
-        - python3-pip
-        - docker
-        - python3-docker
-        - python3-dev
-        - libffi-dev
-        - gcc
-        - libssl-dev
-      state: latest
-    when: ansible_facts['distribution'] == "Ubuntu"
+  file:
+    path: /etc/kolla
+    owner: "{{ ansible_effective_user_id }}"
+    owner: "{{ ansible_effective_group_id }}"
