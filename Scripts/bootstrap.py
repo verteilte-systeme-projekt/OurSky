@@ -6,6 +6,10 @@ def run_playbook(playbook_path, inventory_file = None):
     run_result = ansible_runner.run(playbook=os.path.abspath(playbook_path)) #, cmdline="--ask-become-pass")
     return not run_result.errored
 
+def run_role(role, inventory_file = None):
+    run_result = ansible_runner.run(roles=roles #, cmdline="--ask-become-pass")
+    return not run_result.errored
+
 if __name__ == "__main__":
     print("\n")
     print("=== Welcome to the OurSky Installer!")
@@ -14,7 +18,10 @@ if __name__ == "__main__":
     
     print("Making sure that all required system packages are installed.")
     
-    result_pb_host = run_playbook("./Scripts/playbook_host.yml")
+    # pwd = input("Please enter your password: ")
+
+    # result_pb_host = run_playbook("./Scripts/playbooks/")
+    result_pb_host = run_role("./Scripts")
     
     if not result_pb_host:
         print(f"Error executing host bootstrap playbook")

@@ -2,5 +2,11 @@
     - control
     - monitoring
     - compute
+    - localhost
   roles:
     - role: openstack
+    - role: host
+      vars_prompt:
+        - name: password
+          prompt: 'Enter Your Password'
+          private: yes
