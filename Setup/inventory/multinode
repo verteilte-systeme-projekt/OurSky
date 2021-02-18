@@ -5,8 +5,13 @@ neutron_external_interface=eno1
 tunnel_interface=enp2s0
 cluster_interface=en01
 ansible_become=true
-ansible_ssh_private_key_file=../../keys/id_rsa
+ansible_ssh_private_key_file=../keys/id_rsa
 ansible_user=kolla
+
+[openstack_nodes:children]
+control
+compute
+monitoring
 
 # These initial groups are the only groups required to be modified. The
 # additional groups are for more control of the environment.
@@ -31,7 +36,7 @@ wally139.cit.tu-berlin.de wally_id=139
 #storage01
 
 [deployment]
-localhost   ansible_connection=local ansible_become_pass=Hh.Nn7076Hp2017
+localhost   ansible_connection=local
 
 [baremetal:children]
 control

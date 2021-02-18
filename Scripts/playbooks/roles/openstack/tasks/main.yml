@@ -1,2 +1,0 @@
-- name: Bootstrap OpenStack Nodes
-  import_tasks: bootstrap_nodes.yml

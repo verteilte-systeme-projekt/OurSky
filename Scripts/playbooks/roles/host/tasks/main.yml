@@ -1,3 +1,0 @@
-- name: Bootstrap Host Node
-  import_tasks: bootstrap_host.yml
-  

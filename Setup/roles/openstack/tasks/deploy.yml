@@ -1,0 +1,2 @@
+- name: Echo something
+  echo: "HELLO NODE! {{ wally_id }}"
