@@ -11,4 +11,4 @@
   become: true
   template:
     src: netplan.yml.j2
-    dest: /home/jonathan/netplan.config.txt
+    dest: /home/jonathan/01-netcfg.yaml
