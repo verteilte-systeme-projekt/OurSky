@@ -12,7 +12,7 @@ ansible_user=kolla
 # additional groups are for more control of the environment.
 [control]
 # These hostname must be resolvable from your deployment host
-wally135.cit.tu-berlin.de   ansible_user=zead ansible_become=true
+wally135.cit.tu-berlin.de
 
 # The network nodes are where your l3-agent and loadbalancers will run
 # This can be the same as a host in the control group
@@ -31,7 +31,7 @@ wally139.cit.tu-berlin.de
 #storage01
 
 [deployment]
-localhost   ansible_connection=local ansible_become_pass=Hh.Nn7076Hp2017
+localhost   ansible_connection=local
 
 [baremetal:children]
 control
