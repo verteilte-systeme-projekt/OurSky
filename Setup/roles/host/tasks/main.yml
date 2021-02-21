@@ -38,7 +38,7 @@
   file:
     path: /etc/kolla/passwords.yml
     state: absent
-  when: password_yml_stat.stat.exists and confirm_delete_passwords_yml.user_input | bool
+  when: (not password_yml_stat.stat.exists) or confirm_delete_passwords_yml.user_input | bool
 - name: Copy default passwords.yml from kolla distribution
   copy:
     src: "{{ venv_dir }}/share/kolla-ansible/etc_examples/kolla/passwords.yml"
