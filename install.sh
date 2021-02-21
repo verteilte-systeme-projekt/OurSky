@@ -25,7 +25,7 @@ then
     exit 1
 fi
 
-$pyexec Scripts/create-venv.py $py_venv_path
+$pyexec Setup/create-venv.py $py_venv_path
 
 source $py_venv_path/bin/activate
 
@@ -34,4 +34,5 @@ pip install -U pip
 echo "Installing required packages..."
 pip install -r requirements.txt
 
-python Scripts/bootstrap.py
+# TODO
+# python Scripts/bootstrap.py
