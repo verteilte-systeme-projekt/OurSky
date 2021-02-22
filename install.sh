@@ -44,10 +44,14 @@ pip install -U pip
 echo "Installing required packages..."
 pip install -r requirements.txt
 
-kolla_ansible_kibana_path=$py_venv_path/share/kolla-ansible/ansible/roles/kibana/
+kolla_ansible_kibana_tasks_path=$py_venv_path/share/kolla-ansible/ansible/roles/kibana/tasks/
+kolla_ansible_kibana_default_path=$py_venv_path/share/kolla-ansible/ansible/roles/kibana/default/
 
-echo "Patching kolla-ansible kibana installation at $kolla_ansible_kibana_path"
-cp -v -r ./Setup/kibana-patches/ $kolla_ansible_kibana_path
+echo "Patching kolla-ansible kibana installation at $kolla_ansible_kibana_tasks_path"
+cp -v -r ./Setup/kibana-patches/tasks/* $kolla_ansible_kibana_tasks_path
+
+echo "Patching kolla-ansible kibana installation at $kolla_ansible_kibana_default_path"
+cp -v -r ./Setup/kibana-patches/default/* $kolla_ansible_kibana_default_path
 
 echo "=== Welcome to the OurSky Installer!"
 read -p "Press ENTER to start the installation! " enterkey
